@@ -1,7 +1,7 @@
 {
-  "name": "smooth-timer",
-  "version": "0.1.0",
+  "name": "smooth-time2",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -22,7 +22,6 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
-    "rxjs": "^6.6.7",
     "vite": "^6.2.0"
   }
 }

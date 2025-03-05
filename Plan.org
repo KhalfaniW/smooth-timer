@@ -5,8 +5,12 @@ The goal is to modify percieved effort of activities
 
 
 
-## ideas
+** ideas
   - hide unless hover
   - slow when shown
   - slow even more
   - make checkpoints
+** now
+  + [ ] setup basic test
+    + [ ] setup playwright
+    + [ ] wait 0.1 sec and display value increases

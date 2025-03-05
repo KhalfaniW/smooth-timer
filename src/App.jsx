@@ -11,7 +11,7 @@ function App() {
     }, time);
 
     return () => {};
-  }, []);
+  }, []) ;
   const visibleTime = Math.floor(timeSinceOpen / 5000);
   return (
     <div>
