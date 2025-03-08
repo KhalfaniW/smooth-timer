@@ -1,17 +1,9 @@
 import React from "react";
 import "./App.css";
-import { useState, useEffect } from "react";
+import useTimer from "./useTimer";
 
 function App() {
-  const [timeSinceOpen, setTimeSinceOpen] = useState(0);
-  useEffect(() => {
-    const time = 1000;
-
-    const intervalId = setInterval(() => {
-      setTimeSinceOpen((t) => t + 1000);
-    }, time);
-    return () => clearInterval(intervalId);
-  }, []);
+  const { time: timeSinceOpen } = useTimer();
   const visibleTime = Math.floor(timeSinceOpen / 1000);
   return (
     <>

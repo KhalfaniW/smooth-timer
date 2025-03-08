@@ -14,3 +14,75 @@ The goal is to modify percieved effort of activities
   + [ ] setup basic test
     + [ ] setup playwright
     + [ ] wait 0.1 sec and display value increases
+
+
+
+
+
+** bug
+**** files need to be jsx
+****** problem
+#+begin_example
+
+
+khalfani@main:~/OldKhalfani/home/khalfani/Projects/shared-projects/smooth/smooth-timer-things/smooth-timer$ npm test --- App
+
+> smooth-time2@0.0.0 test
+> NODE_OPTIONS='--experimental-vm-modules' jest ./jest-tests App
+
+(node:296473) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS jest-tests/basic.test.jsx
+FAIL jest-tests/useTimer.test.jsx
+  ● Test suite failed to run
+
+    Must use import to load ES Module: /home/khalfani/OldKhalfani/home/khalfani/Projects/shared-projects/smooth/smooth-timer-things/smooth-timer/src/useTimer.js
+
+      3 | import { Observable } from "rxjs";
+      4 | import App from "../src/App";
+    > 5 | import {useTimer} from "../src/useTimer";
+        | ^
+      6 |   it("should exist", () => {
+      7 |   })
+      8 | // describe("useTimer", () => {
+
+      at Runtime.requireModule (node_modules/.pnpm/jest-runtime@29.7.0/node_modules/jest-runtime/build/index.js:850:21)
+      at Object.require (jest-tests/useTimer.test.jsx:5:1)
+
+PASS jest-tests/App.test.jsx
+
+Test Suites: 1 failed, 2 passed, 3 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        1.634 s
+Ran all test suites matching /.\/jest-tests|App/i.
+khalfani@main:~/OldKhalfani/home/khalfani/Projects/shared-projects/smooth/smooth-timer-things/smooth-timer$ npm test --- App
+
+> smooth-time2@0.0.0 test
+> NODE_OPTIONS='--experimental-vm-modules' jest ./jest-tests App
+
+(node:296623) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS jest-tests/basic.test.jsx
+PASS jest-tests/App.test.jsx
+PASS jest-tests/useTimer.test.jsx
+
+Test Suites: 3 passed, 3 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        1
+
+#+end_example
+
+
+****** solution (quick fix)
+     make input file named jsx instead of js
+
+     
+**** (ai) hooks library is deperecated
+
+A Note about React 18 Support
+As part of the changes for React 18, it has been decided that the renderHook API provided by this library will instead be included as official additions to both react-testing-library (PR) and react-native-testing-library (PR) with the intention being to provide a more cohesive and consistent implementation for our users.
+
+Please be patient as we finalise these changes in the respective testing libraries. In the mean time you can install @testing-library/react@^13.1
+
